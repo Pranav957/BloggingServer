@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= locals.title %></title>
+        <style>
+            /* #body{
+               background-color: blueviolet;
+               margin: 0%;
+            }
+            p{
+               color: aliceblue;
+               font-size: 100px;
+               text-align: center;
+            } */
+           </style>
+        <link rel="stylesheet" href="/css/home.css"></link>
+    </head>
+    <body id="body">
+        <p>written my first Server!</p>
+        <div>
+            <ul>
+                <% for(let i of blogs) { %>
+                    <div>
+                        <li><%=i.title %></li>
+                       <li><%=i.content %></li>
+                    </div>
+                    <div>
+                        <a href="/delete-blog/<%= i.id %>">delete</a>   
+                        <!-- <a href="/delete-blog/?id=<%= i.id %>&title=<%= i.title %>">Delete</a> -->
+                    </div>
+                    <hr>
+                   <% } %> 
+                   
+            </ul>
+        </div>
+        <script type="text/javascript" src="/js/home.js"></script>
+        <form action="create-blog" method="POST">
+            <input type="text" name="title" placeholder="Enter Title" required>
+           <input type="text" name="content" placeholder="Enter content" required>
+           <button type="submit">ADD BLOG</button>
+        </form>
+       
+    </body>
+</html>
